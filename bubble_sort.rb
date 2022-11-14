@@ -9,15 +9,26 @@ def bubble_sort(array)
 
         p "#{array}"
         sorted = 0
-        array.each|num| do    
+        array.each_with_index do |num, idx|    
 
-        #     p "#number: #{num}, index: #{idx}"
+            p "#number: #{num}, idx: #{idx}"
 
-        #     #   if number > array[index + 1]
-        #     #       array[index], array[index + 1] = array[index + 1], array[index]
-        #     #       sorted += 1
-        #     #   p "#{sorted} times sorted"
-        #     #   end
+            p "is #{num} greater than #{array[idx +1]}"
+
+            if idx < array.length - 1
+
+                p "idx is: #{idx}. length: #{array.length}"
+
+              if num > array[idx + 1]
+
+                    array[idx], array[idx + 1] = array[idx + 1], array[idx]
+                    sorted += 1
+                    p "#{sorted} times sorted"
+                    p array
+                    puts 
+              end
+
+            end
             
         end
 
@@ -25,8 +36,11 @@ def bubble_sort(array)
 
         
     end 
+
+
+    p "Final sorted array is #{array}" 
     
 
 end
 
-bubble_sort([4,3,78,2,0,2])
+bubble_sort([1, 2, 3, 4, 5, 6, 7])
